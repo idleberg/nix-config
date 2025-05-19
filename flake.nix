@@ -111,8 +111,21 @@
           system.primaryUser = "jan";
 
           system.defaults = {
+            controlcenter.Bluetooth = true;
+            controlcenter.Sound = true;
             dock.autohide = true;
             dock.mineffect = "scale";
+            finder.AppleShowAllExtensions = true;
+            finder.FXPreferredViewStyle = "Nlsv";
+            finder.ShowHardDrivesOnDesktop = true;
+            finder.ShowMountedServersOnDesktop = true;
+            finder.ShowStatusBar = true;
+            finder.ShowPathbar = true;
+            menuExtraClock.Show24Hour = true;
+            menuExtraClock.ShowSeconds = true;
+            networking.computerName = "minerva";
+            screencapture.location = "/Users/jan/Desktop/Screenshots";
+            time.timeZone = "Europe/Vienna";
           };
 
           # Make Nix applications available in Spotlight
@@ -140,7 +153,24 @@
           nix.settings.experimental-features = "nix-command flakes";
 
           # Enable alternative shell support in nix-darwin.
-          programs.fish.enable = true;
+          programs.fish = {
+            enable = true;
+            shellAliases: {
+              # System
+              ".." = "cd ..";
+              "ls" = "eza";
+              "ll" = "eza -la";
+
+              # Shortcuts
+              "desk" = "cd ~/Desktop";
+              "dl" = "cd ~/Downloads";
+              "mr" = "cd ~/Repositories";
+
+              # Typos
+              "gti" = "git";
+              "gitp" = "git"
+            };
+          };
 
           # Set Git commit hash for darwin-version.
           system.configurationRevision = self.rev or self.dirtyRev or null;
