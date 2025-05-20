@@ -123,9 +123,9 @@
             finder.ShowPathbar = true;
             menuExtraClock.Show24Hour = true;
             menuExtraClock.ShowSeconds = true;
-            networking.computerName = "minerva";
+            # networking.computerName = "minerva";
             screencapture.location = "/Users/jan/Desktop/Screenshots";
-            time.timeZone = "Europe/Vienna";
+            # time.timeZone = "Europe/Vienna";
           };
 
           # Make Nix applications available in Spotlight
@@ -155,7 +155,7 @@
           # Enable alternative shell support in nix-darwin.
           programs.fish = {
             enable = true;
-            shellAliases: {
+            shellAliases = {
               # System
               ".." = "cd ..";
               "ls" = "eza";
@@ -168,7 +168,7 @@
 
               # Typos
               "gti" = "git";
-              "gitp" = "git"
+              "gitp" = "git";
             };
           };
 
