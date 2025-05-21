@@ -62,11 +62,13 @@
 
             # Development
             "gb-studio"
+            "ghostty"
             "orbstack"
             "playdate-simulator"
             "postman"
             "sequel-ace"
             "visual-studio-code"
+            "warp"
             "zed"
 
             # Gaming
@@ -74,7 +76,6 @@
             "gog-galaxy"
             "openemu"
             "scummvm"
-            "vice"
 
             # Quicklook Plugins
             "qlmarkdown"
@@ -85,6 +86,7 @@
             "ableton-live-standard@11"
             "focusrite-control"
             "freac"
+            "spotify"
 
             # Other
             "grandperspective"
