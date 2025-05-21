@@ -11,7 +11,8 @@ This repository contains my private Nix configuration for macOS. It's also meant
 
 There are several ways to install Nix on a Mac. Since the official Nix installer does not provide an uninstaller, the [Nix installer by Determinate Systems](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#determinate-nix-installer) or the [Lix installer](https://lix.systems/install/#on-any-other-linuxmacos-system) are widely considered better alternatives. I'm using the former in the following.
 
-> [!WARNING] > **Gotcha alert**. Make sure to read this chapter until the end before running the command.
+> [!WARNING]
+> Make sure to read this chapter until the end before running the command.
 
 ```sh
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install
