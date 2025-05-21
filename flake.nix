@@ -68,7 +68,6 @@
             "postman"
             "sequel-ace"
             "visual-studio-code"
-            "warp"
             "zed"
 
             # Gaming
@@ -155,9 +154,9 @@
             "/Applications/Spotify.app"
             "/Applications/System Settings.app"
             "/Applications/Ghostty.app"
-            "/Applications/Warp.app"
+            "/Applications/Nix Apps/Warp.app"
             "/Applications/Signal.app"
-            "/Applications/Obsidian.app"
+            "/Applications/Nix Apps/Obsidian.app"
           ];
         };
 
