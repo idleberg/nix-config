@@ -101,7 +101,7 @@
             "signal"
             "transmission"
             "tunnelblick"
-            "virtual-buddy"
+            "virtualbuddy"
             "wine-stable"
             "xquartz"
           ];
