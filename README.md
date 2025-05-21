@@ -22,42 +22,16 @@ The first dialog in the installer will ask you whether to "Install Determinate N
 
 ### 2. Install Nix-Darwin
 
-Since this repository already includes my `configuration.nix`, we need to do some preparation.
-
-First, we create the Nix-Darwin folder
+Since this repository already includes my `flake.nix`, we can clone it to a location of our liking.
 
 ```sh
-sudo mkdir -p /etc/nix-darwin
-sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
+git clone https://github.com/idleberg/nix-config ~/nix
 ```
-
-Next up, set up Nix-Darwin according to your preferences
-
-```sh
-cd /etc/nix-darwin
-
-# To use Nixpkgs unstable:
-nix flake init -t nix-darwin/master
-
-# To use Nixpkgs 24.11:
-nix flake init -t nix-darwin/nix-darwin-24.11
-
-# Patch the local hostname
-sed -i '' "s/simple/$(scutil --get LocalHostName)/" /etc/nix-darwin/flake.nix
-```
-
-This should have created `/etc/nix-darwin/flake.nix`.
 
 Install `nix-darwin`
 
 ```sh
-nix run nix-darwin/master#darwin-rebuild -- switch
-```
-
-# Install Nix Darwin
-
-```
-nix main nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ./flake.nix
+sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 ```
 
 ## Todos
