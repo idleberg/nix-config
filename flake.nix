@@ -54,6 +54,12 @@
             "nsis"
           ];
           casks = [
+            # Browsers
+            "arc"
+            "firefox@developer-edition"
+            "google-chrome"
+            "google-chrome@dev"
+
             # Development
             "orbstack"
             "playdate-simulator"
@@ -105,7 +111,7 @@
             "maccy"
             "obs"
             "rar"
-            "virtual-buddy"
+            "virtualbuddy"
             "wine-stable"
             "xquartz"
           ];
@@ -132,8 +138,6 @@
         system.defaults = {
           controlcenter.Bluetooth = true;
           controlcenter.Sound = true;
-          dock.autohide = true;
-          dock.mineffect = "scale";
           finder.AppleShowAllExtensions = true;
           finder.FXPreferredViewStyle = "Nlsv";
           finder.ShowHardDrivesOnDesktop = true;
@@ -145,6 +149,24 @@
           # networking.computerName = "minerva";
           screencapture.location = "/Users/jan/Desktop/Screenshots";
           # time.timeZone = "Europe/Vienna";
+        };
+
+        system.defaults.dock = {
+          autohide = true;
+          mineffect = "scale";
+          persistent-apps = [
+            "/Applications/Google Chrome.app"
+            "/Applications/Visual Studio Code.app"
+            "/Applications/Mail.app"
+            "/Applications/Messages.app"
+            "/Applications/Music.app"
+            "/Applications/Spotify.app"
+            "/Applications/System Settings.app"
+            "/Applications/Ghostty.app"
+            "/Applications/Warp.app"
+            "/Applications/Signal.app"
+            "/Applications/Obsidian.app"
+          ];
         };
 
         # Make Nix applications available in Spotlight
