@@ -61,57 +61,47 @@
             "google-chrome@dev"
 
             # Development
+            "gb-studio"
             "orbstack"
             "playdate-simulator"
+            "postman"
             "sequel-ace"
             "visual-studio-code"
             "zed"
 
             # Gaming
             "fs-uae"
+            "gog-galaxy"
             "openemu"
+            "scummvm"
+            "vice"
 
             # Quicklook Plugins
             "qlmarkdown"
             "quicklook-json"
             "webpquicklook"
 
-            # Other
-            "grandperspective"
-            "iina"
-            "handbrake"
-            "linearmouse"
-            "keka"
-            "maccy"
-            "obs"
-            "rar"
-            "virtual-buddy"
-            "wine-stable"
-            "xquartz"
+            # Audio
+            "ableton-live-standard@11"
+            "focusrite-control"
+            "freac"
 
             # Other
             "grandperspective"
             "iina"
+            "imageoptim"
             "handbrake"
             "linearmouse"
+            "little-snitch"
+            "kap"
             "keka"
             "maccy"
             "obs"
             "rar"
+            "signal"
+            "transmission"
+            "tunnelblick"
             "virtual-buddy"
-            "wine-stable"
-            "xquartz"
-
-            # Other
-            "grandperspective"
-            "iina"
-            "handbrake"
-            "linearmouse"
-            "keka"
-            "maccy"
-            "obs"
-            "rar"
-            "virtualbuddy"
             "wine-stable"
             "xquartz"
           ];
