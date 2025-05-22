@@ -116,6 +116,7 @@
             "Alfred" = 405843582;
             "iA Writer" = 775737590;
             "LocalSend" = 1661733229;
+            "Microsoft Remote Desktop" = 1295203466;
             "PiBar" = 1514292645;
             "The Archive Browser" = 510232205;
             "System Color Picker" = 1545870783;
@@ -145,11 +146,57 @@
           # networking.computerName = "minerva";
           screencapture.location = "/Users/jan/Desktop/Screenshots";
           # time.timeZone = "Europe/Vienna";
+          loginwindow.GuestEnabled = false;
+
+          NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
         };
+
+        system.defaults.CustomUserPreferences = {
+          "com.apple.finder" = {
+            ShowExternalHardDrivesOnDesktop = true;
+            ShowHardDrivesOnDesktop = false;
+            ShowMountedServersOnDesktop = false;
+            ShowRemovableMediaOnDesktop = true;
+            _FXSortFoldersFirst = false;
+            # When performing a search, search the current folder by default
+            FXDefaultSearchScope = "SCcf";
+            NewWindowTargetPath = "file://\${HOME}/Desktop/";
+            FXEnableExtensionChangeWarning = false;
+          };
+          "com.apple.desktopservices" = {
+            # Avoid creating .DS_Store files on network or USB volumes
+            DSDontWriteNetworkStores = true;
+            DSDontWriteUSBStores = true;
+          };
+          "com.apple.ActivityMonitor" = {
+            OpenMainWindow = true;
+            IconType = 5;
+            SortColumn = "CPUUsage";
+            SortDirection = 0;
+          };
+          "com.apple.SoftwareUpdate" = {
+            AutomaticCheckEnabled = true;
+            # Check for software updates daily, not just once per week
+            ScheduleFrequency = 1;
+            # Download newly available updates in background
+            AutomaticDownload = 1;
+            # Install System data files & security updates
+            CriticalUpdateInstall = 1;
+          };
+        };
+
+        # Add ability to used TouchID for sudo authentication
+        security.pam.enableSudoTouchIdAuth = true;
 
         system.defaults.dock = {
           autohide = true;
           mineffect = "scale";
+          show-recents = false;
+          tilesize = 24;
+          largesize = 64;
+          magnification = true;
+          wvous-br-corner = "Desktop";
+
           persistent-apps = [
             "/Applications/Google Chrome.app"
             "/Applications/Visual Studio Code.app"
