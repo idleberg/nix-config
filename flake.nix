@@ -36,7 +36,7 @@
           pkgs.mkalias
           pkgs.mkcert
           pkgs.nixfmt
-          pkgs.node
+          pkgs.nodejs
           pkgs.obsidian
           pkgs.oh-my-fish
           pkgs.p7zip
