@@ -315,7 +315,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jan = import ./home.nix;
+            # home-manager.users.jan = import ./home.nix;
           }
         ];
         specialArgs = { inherit inputs; };
