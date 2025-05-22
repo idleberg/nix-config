@@ -247,6 +247,14 @@
         programs.bat.enable = true;
         programs.bat.config.theme = "Nord";
 
+        programs.git = {
+          enable = true;
+          userEmail = "git@idleberg.com";
+          userName = "Jan T. Sott";
+          diff-so-fancy.enable = true;
+          lfs.enable = true;
+        };
+
         # Enable alternative shell support in nix-darwin.
         programs.fish = {
           enable = true;
