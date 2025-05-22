@@ -197,7 +197,7 @@
           magnification = true;
           wvous-br-corner = 4; # "Show Desktop;
 
-          persistent-apps = [
+          persistent-apps = if builtins.getEnv "NIX_IS_VM" == "0" then [
             "/Applications/Google Chrome.app"
             "/Applications/Visual Studio Code.app"
             "/Applications/Mail.app"
@@ -209,7 +209,8 @@
             "/Applications/Nix Apps/Warp.app"
             "/Applications/Signal.app"
             "/Applications/Nix Apps/Obsidian.app"
-          ];
+          ] else
+            [ ];
         };
 
         # Make Nix applications available in Spotlight
