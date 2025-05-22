@@ -195,7 +195,7 @@
           tilesize = 24;
           largesize = 64;
           magnification = true;
-          wvous-br-corner = "Desktop";
+          wvous-br-corner = 4; # "Desktop;
 
           persistent-apps = [
             "/Applications/Google Chrome.app"
