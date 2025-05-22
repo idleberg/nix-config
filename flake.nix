@@ -9,8 +9,8 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # home-manager.url = "github:nix-community/home-manager/release-24.11";
+    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, }:
@@ -140,6 +140,9 @@
 
         system.primaryUser = "jan";
 
+        networking.computerName = "minerva";
+        time.timeZone = "Europe/Vienna";
+
         system.defaults = {
           controlcenter.Bluetooth = true;
           controlcenter.Sound = true;
@@ -151,9 +154,7 @@
           finder.ShowPathbar = true;
           menuExtraClock.Show24Hour = true;
           menuExtraClock.ShowSeconds = true;
-          # networking.computerName = "minerva";
           screencapture.location = "/Users/jan/Desktop/Screenshots";
-          # time.timeZone = "Europe/Vienna";
           loginwindow.GuestEnabled = false;
 
           NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
@@ -286,17 +287,17 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
       };
 
-      homeconfig = { pkgs, ... }: {
-        # this is internal compatibility configuration
-        # for home-manager, don't change this!
-        home.stateVersion = "23.05";
-        # Let home-manager install and manage itself.
-        programs.home-manager.enable = true;
+      # homeconfig = { pkgs, ... }: {
+      #   # this is internal compatibility configuration
+      #   # for home-manager, don't change this!
+      #   home.stateVersion = "23.05";
+      #   # Let home-manager install and manage itself.
+      #   programs.home-manager.enable = true;
 
-        home.packages = with pkgs; [ ];
+      #   home.packages = with pkgs; [ ];
 
-        home.sessionVariables = { EDITOR = "code"; };
-      };
+      #   home.sessionVariables = { EDITOR = "code"; };
+      # };
     in {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#minerva
@@ -311,12 +312,12 @@
               user = "jan";
             };
           }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jan = homeconfig;
-          }
+          # home-manager.darwinModules.home-manager
+          # {
+          #   home-manager.useGlobalPkgs = true;
+          #   home-manager.useUserPackages = true;
+          #   home-manager.users.jan = homeconfig;
+          # }
         ];
         specialArgs = { inherit inputs; };
       };
