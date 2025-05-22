@@ -24,6 +24,8 @@
           pkgs.fzf
           pkgs.git
           pkgs.git-lfs
+          pkgs.git-crypt
+          pkgs.ghostty
           pkgs.glow
           pkgs.go
           pkgs.goreleaser
@@ -62,7 +64,7 @@
 
             # Development
             "gb-studio"
-            "ghostty"
+            "idleberg/tap/krampus"
             "orbstack"
             "playdate-simulator"
             "postman"
@@ -153,7 +155,7 @@
             "/Applications/Music.app"
             "/Applications/Spotify.app"
             "/Applications/System Settings.app"
-            "/Applications/Ghostty.app"
+            "/Applications/Nix Apps/Ghostty.app"
             "/Applications/Nix Apps/Warp.app"
             "/Applications/Signal.app"
             "/Applications/Nix Apps/Obsidian.app"
