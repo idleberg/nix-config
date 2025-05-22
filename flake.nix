@@ -204,7 +204,7 @@
           autohide = true;
           mineffect = "scale";
           show-recents = false;
-          tilesize = 24;
+          tilesize = 36;
           largesize = 64;
           magnification = true;
           wvous-br-corner = 4; # "Show Desktop;
