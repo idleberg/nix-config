@@ -242,38 +242,38 @@
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
 
-        programs.home-manager.enable = true;
+        # programs.home-manager.enable = true;
 
-        programs.bat.enable = true;
-        programs.bat.config.theme = "Nord";
+        # programs.bat.enable = true;
+        # programs.bat.config.theme = "Nord";
 
-        programs.git = {
-          enable = true;
-          userEmail = "git@idleberg.com";
-          userName = "Jan T. Sott";
-          diff-so-fancy.enable = true;
-          lfs.enable = true;
-        };
+        # programs.git = {
+        #   enable = true;
+        #   userEmail = "git@idleberg.com";
+        #   userName = "Jan T. Sott";
+        #   diff-so-fancy.enable = true;
+        #   lfs.enable = true;
+        # };
 
-        # Enable alternative shell support in nix-darwin.
-        programs.fish = {
-          enable = true;
-          shellAliases = {
-            # System
-            ".." = "cd ..";
-            "ls" = "eza";
-            "ll" = "eza -la";
+        # # Enable alternative shell support in nix-darwin.
+        # programs.fish = {
+        #   enable = true;
+        #   shellAliases = {
+        #     # System
+        #     ".." = "cd ..";
+        #     "ls" = "eza";
+        #     "ll" = "eza -la";
 
-            # Shortcuts
-            "desk" = "cd ~/Desktop";
-            "dl" = "cd ~/Downloads";
-            "mr" = "cd ~/Repositories";
+        #     # Shortcuts
+        #     "desk" = "cd ~/Desktop";
+        #     "dl" = "cd ~/Downloads";
+        #     "mr" = "cd ~/Repositories";
 
-            # Typos
-            "gti" = "git";
-            "gitp" = "git";
-          };
-        };
+        #     # Typos
+        #     "gti" = "git";
+        #     "gitp" = "git";
+        #   };
+        # };
 
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
