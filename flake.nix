@@ -205,7 +205,7 @@
           largesize = 64;
           magnification = true;
           wvous-br-corner = 4; # "Show Desktop;
-          orientation: "right"; # TODO remove after testing
+          orientation = "right"; # TODO remove after testing
 
           persistent-apps = [
             "/Applications/Google Chrome.app"
