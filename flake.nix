@@ -16,6 +16,7 @@
           pkgs.act
           pkgs.atuin
           pkgs.bat
+          pkgs.corepack
           pkgs.curl
           pkgs.deno
           pkgs.eza
@@ -35,6 +36,7 @@
           pkgs.mkalias
           pkgs.mkcert
           pkgs.nixfmt
+          pkgs.node
           pkgs.obsidian
           pkgs.oh-my-fish
           pkgs.p7zip
