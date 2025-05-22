@@ -25,7 +25,7 @@
           pkgs.git
           pkgs.git-lfs
           pkgs.git-crypt
-          pkgs.ghostty
+          # pkgs.ghostty
           pkgs.glow
           pkgs.go
           pkgs.goreleaser
@@ -64,6 +64,7 @@
 
             # Development
             "gb-studio"
+            "ghostty"
             "idleberg/tap/krampus"
             "orbstack"
             "playdate-simulator"
