@@ -71,7 +71,7 @@
 
             # Development
             "gb-studio"
-            "ghostty"
+            "ghostty" # nix package is broken
             "idleberg/tap/krampus"
             "orbstack"
             "playdate-simulator"
@@ -85,6 +85,7 @@
             "gog-galaxy"
             "openemu"
             "scummvm"
+            "steam"
 
             # Quicklook Plugins
             "qlmarkdown"
@@ -93,9 +94,10 @@
 
             # Audio
             "ableton-live-standard@11"
+            "airfoil"
+            "audacity"
             "focusrite-control"
             "freac"
-            "spotify"
 
             # Other
             "grandperspective"
@@ -110,6 +112,7 @@
             "obs"
             "rar"
             "signal"
+            "spotify"
             "transmission"
             "tunnelblick"
             "virtualbuddy"
