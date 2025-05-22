@@ -242,6 +242,11 @@
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
 
+        programs.home-manager.enable = true;
+
+        programs.bat.enable = true;
+        programs.bat.config.theme = "Nord";
+
         # Enable alternative shell support in nix-darwin.
         programs.fish = {
           enable = true;
