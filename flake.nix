@@ -111,7 +111,7 @@
             "wine-stable"
             "xquartz"
           ];
-          masApps = {
+          masApps = if builtins.getEnv "NIX_IS_VM" != "1" then {
             "1Password" = 1333542190;
             "Alfred" = 405843582;
             "iA Writer" = 775737590;
@@ -122,7 +122,8 @@
             "System Color Picker" = 1545870783;
             "Transmit" = 1436522307;
             "Xcode" = 497799835;
-          };
+          } else
+            { };
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
           onActivation.upgrade = true;
