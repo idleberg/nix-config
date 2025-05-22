@@ -198,9 +198,7 @@
           magnification = true;
           wvous-br-corner = 4; # "Show Desktop;
 
-          persistent-apps = if builtins.getEnv "NIX_IS_VM" != "1" then
-            [ ]
-          else [
+          persistent-apps = [
             "/Applications/Google Chrome.app"
             "/Applications/Visual Studio Code.app"
             "/Applications/Mail.app"
