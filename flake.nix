@@ -215,7 +215,7 @@
             "/Applications/Music.app"
             "/Applications/Spotify.app"
             "/Applications/System Settings.app"
-            "/Applications/Nix Apps/Ghostty.app"
+            "/Applications/Ghostty.app"
             "/Applications/Nix Apps/Warp.app"
             "/Applications/Signal.app"
             "/Applications/Nix Apps/Obsidian.app"
