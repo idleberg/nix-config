@@ -38,18 +38,22 @@ sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 
 Unfortunately, not all parts are yet automated and I have not yet investigated into how to solve the following todos properly
 
-- [ ] `xcode-select --install`
-- [ ] `softwareupdate --install-rosetta`
+-   [ ] `xcode-select --install`
+-   [ ] `softwareupdate --install-rosetta`
 
 ## Acknowledgments
 
+Guides
+
+-   [Zero to Nix](https://zero-to-nix.com/start/install/)
+
 Videos
 
-- [Nix explained from the ground up](https://www.youtube.com/watch?v=5D3nUU1OVx8), if you're new to Nix
-- [Nix is my favorite package manager to use on macOS](https://www.youtube.com/watch?v=Z8BL8mdzWHI)
-- [Use nix on macOS to declare victory over your configs](https://www.youtube.com/watch?v=qUmZtC6ts0M)
+-   [Nix explained from the ground up](https://www.youtube.com/watch?v=5D3nUU1OVx8), if you're new to Nix
+-   [Nix is my favorite package manager to use on macOS](https://www.youtube.com/watch?v=Z8BL8mdzWHI)
+-   [Use nix on macOS to declare victory over your configs](https://www.youtube.com/watch?v=qUmZtC6ts0M)
 
 Configs
 
-- [Mitchell Hashimoto](https://github.com/mitchellh/nixos-config)
-- [ironicbadger](https://github.com/ironicbadger/nix-config)
+-   [Mitchell Hashimoto](https://github.com/mitchellh/nixos-config)
+-   [ironicbadger](https://github.com/ironicbadger/nix-config)
