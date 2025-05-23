@@ -15,40 +15,47 @@
       configuration = { pkgs, config, ... }: {
         nixpkgs.config.allowUnfree = true;
         environment.systemPackages = [
+          # Development
           pkgs.act
-          pkgs.atuin
-          pkgs.bat
           pkgs.corepack
-          pkgs.curl
           pkgs.deno
-          pkgs.eza
-          pkgs.fish
           pkgs.fnm
-          pkgs.fzf
           pkgs.git
           pkgs.git-lfs
           pkgs.git-crypt
-          # pkgs.ghostty
-          pkgs.glow
           pkgs.go
           pkgs.goreleaser
           pkgs.hyperfine
-          pkgs.macchina
-          pkgs.maestral
-          pkgs.mkalias
           pkgs.mkcert
           pkgs.nixfmt
           pkgs.nodejs
+          pkgs.sqlite
+
+          # Fancy new system tools
+          pkgs.atuin
+          pkgs.bat
+          pkgs.fzf
+          pkgs.eza
+          pkgs.zoxide
+
+          # GUI tools
+          pkgs.maestral
           pkgs.obsidian
+          pkgs.warp-terminal
+
+          # Other
+          pkgs.curl
+          pkgs.fish
+          # pkgs.ghostty
+          pkgs.glow
+          pkgs.macchina
+          pkgs.mkalias
           pkgs.oh-my-fish
           pkgs.p7zip
           pkgs.rar
           pkgs.scdl
-          pkgs.sqlite
           pkgs.tealdeer
-          pkgs.warp-terminal
           pkgs.yt-dlp
-          pkgs.zoxide
         ];
 
         homebrew = {
@@ -288,8 +295,6 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
       };
     in {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#minerva
       darwinConfigurations."minerva" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
