@@ -23,7 +23,7 @@
       ...
     }: {
       nixpkgs.config.allowUnfree = true;
-      environment.systemPackages = with pkgs [
+      environment.systemPackages = with pkgs; [
         # Development
         act
         corepack
@@ -37,7 +37,7 @@
         hyperfine
         mkcert
         nixfmt
-        nodejs # TODO remove once fnm is configured via home-manager
+        nodejs
         sqlite
 
         # Fancy new system tools
