@@ -34,11 +34,20 @@ Install `nix-darwin`
 sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 ```
 
-## Todos
+### 3. Build
 
-Unfortunately, not all parts are yet automated and I have not yet investigated into how to solve the following todos properly
+Change into the newly created directory and build the configuration
 
--   [ ] `xcode-select --install`
+```sh
+cd ~/nix
+
+# Install xcode-tools & enable rosetta
+sudo make bootstrap
+
+# Build & Switch
+make switch
+```
+
 -   [ ] `softwareupdate --install-rosetta`
 
 ## Acknowledgments
