@@ -86,7 +86,7 @@
           # Development
           "gb-studio"
           "ghostty" # nix package is broken
-          "idleberg/tap/krampus"
+          "idleberg/asahi/krampus"
           "orbstack"
           "playdate-simulator"
           "postman"
