@@ -1,6 +1,7 @@
 {
+	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,
 	"[nix]": {
-		"editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+		"editor.defaultFormatter": "kamadorueda.alejandra"
 	}
 }
