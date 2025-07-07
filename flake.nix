@@ -171,7 +171,7 @@
         finder.ShowPathbar = true;
         menuExtraClock.Show24Hour = true;
         menuExtraClock.ShowSeconds = true;
-        screencapture.location = "/Users/jan/Desktop/Screenshots";
+        screencapture.location = "\${HOME}/Screenshots";
         loginwindow.GuestEnabled = false;
 
         NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
@@ -184,8 +184,10 @@
           ShowMountedServersOnDesktop = false;
           ShowRemovableMediaOnDesktop = true;
           _FXSortFoldersFirst = false;
+
           # When performing a search, search the current folder by default
           FXDefaultSearchScope = "SCcf";
+
           NewWindowTargetPath = "file://\${HOME}/Desktop/";
           FXEnableExtensionChangeWarning = false;
         };
@@ -262,39 +264,6 @@
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
-
-      # programs.home-manager.enable = true;
-
-      # programs.bat.enable = true;
-      # programs.bat.config.theme = "Nord";
-
-      # programs.git = {
-      #   enable = true;
-      #   userEmail = "git@idleberg.com";
-      #   userName = "Jan T. Sott";
-      #   diff-so-fancy.enable = true;
-      #   lfs.enable = true;
-      # };
-
-      # # Enable alternative shell support in nix-darwin.
-      # programs.fish = {
-      #   enable = true;
-      #   shellAliases = {
-      #     # System
-      #     ".." = "cd ..";
-      #     "ls" = "eza";
-      #     "ll" = "eza -la";
-
-      #     # Shortcuts
-      #     "desk" = "cd ~/Desktop";
-      #     "dl" = "cd ~/Downloads";
-      #     "mr" = "cd ~/Repositories";
-
-      #     # Typos
-      #     "gti" = "git";
-      #     "gitp" = "git";
-      #   };
-      # };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
