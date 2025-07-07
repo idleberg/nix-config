@@ -10,233 +10,246 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, }:
-    let
-      configuration = { pkgs, config, ... }: {
-        nixpkgs.config.allowUnfree = true;
-        environment.systemPackages = [
+  outputs = inputs @ {
+    self,
+    nix-darwin,
+    nixpkgs,
+    nix-homebrew,
+    home-manager,
+  }: let
+    configuration = {
+      pkgs,
+      config,
+      ...
+    }: {
+      nixpkgs.config.allowUnfree = true;
+      environment.systemPackages = with pkgs [
+        # Development
+        act
+        corepack
+        deno
+        fnm
+        git
+        git-lfs
+        git-crypt
+        go
+        goreleaser
+        hyperfine
+        mkcert
+        nixfmt
+        nodejs # TODO remove once fnm is configured via home-manager
+        sqlite
+
+        # Fancy new system tools
+        atuin
+        bat
+        fzf
+        eza
+        zoxide
+
+        # GUI tools
+        maestral
+        obsidian
+        warp-terminal
+
+        # Other
+        curl
+        fish
+        # ghostty
+        glow
+        macchina
+        mkalias
+        oh-my-fish
+        p7zip
+        rar
+        scdl
+        starship
+        tealdeer
+        yt-dlp
+      ];
+
+      homebrew = {
+        enable = true;
+        brews = [
+          "mas"
+
+          # the NSIS package on the Nix repository is outdated and broken
+          "nsis"
+        ];
+        casks = [
+          # Browsers
+          "arc"
+          "firefox@developer-edition"
+          "google-chrome"
+          "google-chrome@dev"
+
           # Development
-          pkgs.act
-          pkgs.corepack
-          pkgs.deno
-          pkgs.fnm
-          pkgs.git
-          pkgs.git-lfs
-          pkgs.git-crypt
-          pkgs.go
-          pkgs.goreleaser
-          pkgs.hyperfine
-          pkgs.mkcert
-          pkgs.nixfmt
-          pkgs.nodejs
-          pkgs.sqlite
+          "gb-studio"
+          "ghostty" # nix package is broken
+          "idleberg/tap/krampus"
+          "orbstack"
+          "playdate-simulator"
+          "postman"
+          "sequel-ace"
+          "visual-studio-code"
+          "zed"
 
-          # Fancy new system tools
-          pkgs.atuin
-          pkgs.bat
-          pkgs.fzf
-          pkgs.eza
-          pkgs.zoxide
+          # Gaming
+          "celeste-classic"
+          "fs-uae"
+          "gog-galaxy"
+          "openemu"
+          "scummvm"
+          "steam"
 
-          # GUI tools
-          pkgs.maestral
-          pkgs.obsidian
-          pkgs.warp-terminal
+          # Quicklook Plugins
+          "qlmarkdown"
+          "quicklook-json"
+          "webpquicklook"
+
+          # Audio
+          "ableton-live-standard@11"
+          "airfoil"
+          "audacity"
+          "focusrite-control"
+          "freac"
 
           # Other
-          pkgs.curl
-          pkgs.fish
-          # pkgs.ghostty
-          pkgs.glow
-          pkgs.macchina
-          pkgs.mkalias
-          pkgs.oh-my-fish
-          pkgs.p7zip
-          pkgs.rar
-          pkgs.scdl
-          pkgs.tealdeer
-          pkgs.yt-dlp
+          "grandperspective"
+          "iina"
+          "imageoptim"
+          "handbrake"
+          "linearmouse"
+          "little-snitch"
+          "kap"
+          "keka"
+          "maccy"
+          "obs"
+          "rar"
+          "signal"
+          "spotify"
+          "transmission"
+          "tunnelblick"
+          "virtualbuddy"
+          "wine-stable"
+          "xquartz"
         ];
 
-        homebrew = {
-          enable = true;
-          brews = [
-            "mas"
+        # Applications installed from the Mac App Store (MAS)
+        # masApps = {
+        #   "1Password" = 1333542190;
+        #   "Alfred" = 405843582;
+        #   "iA Writer" = 775737590;
+        #   "LocalSend" = 1661733229;
+        #   "Microsoft Remote Desktop" = 1295203466;
+        #   "PiBar" = 1514292645;
+        #   "The Archive Browser" = 510232205;
+        #   "System Color Picker" = 1545870783;
+        #   "Transmit" = 1436522307;
+        #   "Xcode" = 497799835;
+        # };
 
-            # the NSIS package on the Nix repository is outdated and broken
-            "nsis"
-          ];
-          casks = [
-            # Browsers
-            "arc"
-            "firefox@developer-edition"
-            "google-chrome"
-            "google-chrome@dev"
+        onActivation.cleanup = "zap";
+        onActivation.autoUpdate = true;
+        onActivation.upgrade = true;
+      };
 
-            # Development
-            "gb-studio"
-            "ghostty" # nix package is broken
-            "idleberg/tap/krampus"
-            "orbstack"
-            "playdate-simulator"
-            "postman"
-            "sequel-ace"
-            "visual-studio-code"
-            "zed"
+      fonts.packages = [pkgs.departure-mono pkgs.fira pkgs.ibm-plex pkgs.nerd-fonts.blex-mono pkgs.nerd-fonts-fira-mono];
 
-            # Gaming
-            "fs-uae"
-            "gog-galaxy"
-            "openemu"
-            "scummvm"
-            "steam"
+      system.primaryUser = "jan";
 
-            # Quicklook Plugins
-            "qlmarkdown"
-            "quicklook-json"
-            "webpquicklook"
+      networking.computerName = "minerva";
+      time.timeZone = "Europe/Vienna";
 
-            # Audio
-            "ableton-live-standard@11"
-            "airfoil"
-            "audacity"
-            "focusrite-control"
-            "freac"
+      system.defaults = {
+        controlcenter.Bluetooth = true;
+        controlcenter.Sound = true;
+        finder.AppleShowAllExtensions = true;
+        finder.FXPreferredViewStyle = "Nlsv";
+        finder.ShowHardDrivesOnDesktop = true;
+        finder.ShowMountedServersOnDesktop = true;
+        finder.ShowStatusBar = true;
+        finder.ShowPathbar = true;
+        menuExtraClock.Show24Hour = true;
+        menuExtraClock.ShowSeconds = true;
+        screencapture.location = "/Users/jan/Desktop/Screenshots";
+        loginwindow.GuestEnabled = false;
 
-            # Other
-            "grandperspective"
-            "iina"
-            "imageoptim"
-            "handbrake"
-            "linearmouse"
-            "little-snitch"
-            "kap"
-            "keka"
-            "maccy"
-            "obs"
-            "rar"
-            "signal"
-            "spotify"
-            "transmission"
-            "tunnelblick"
-            "virtualbuddy"
-            "wine-stable"
-            "xquartz"
-          ];
+        NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+      };
 
-          # Applications installed from the Mac App Store (MAS)
-          # masApps = {
-          #   "1Password" = 1333542190;
-          #   "Alfred" = 405843582;
-          #   "iA Writer" = 775737590;
-          #   "LocalSend" = 1661733229;
-          #   "Microsoft Remote Desktop" = 1295203466;
-          #   "PiBar" = 1514292645;
-          #   "The Archive Browser" = 510232205;
-          #   "System Color Picker" = 1545870783;
-          #   "Transmit" = 1436522307;
-          #   "Xcode" = 497799835;
-          # };
-
-          onActivation.cleanup = "zap";
-          onActivation.autoUpdate = true;
-          onActivation.upgrade = true;
+      system.defaults.CustomUserPreferences = {
+        "com.apple.finder" = {
+          ShowExternalHardDrivesOnDesktop = true;
+          ShowHardDrivesOnDesktop = false;
+          ShowMountedServersOnDesktop = false;
+          ShowRemovableMediaOnDesktop = true;
+          _FXSortFoldersFirst = false;
+          # When performing a search, search the current folder by default
+          FXDefaultSearchScope = "SCcf";
+          NewWindowTargetPath = "file://\${HOME}/Desktop/";
+          FXEnableExtensionChangeWarning = false;
         };
-
-        fonts.packages = [ pkgs.departure-mono pkgs.fira pkgs.ibm-plex ];
-
-        system.primaryUser = "jan";
-
-        networking.computerName = "minerva";
-        time.timeZone = "Europe/Vienna";
-
-        system.defaults = {
-          controlcenter.Bluetooth = true;
-          controlcenter.Sound = true;
-          finder.AppleShowAllExtensions = true;
-          finder.FXPreferredViewStyle = "Nlsv";
-          finder.ShowHardDrivesOnDesktop = true;
-          finder.ShowMountedServersOnDesktop = true;
-          finder.ShowStatusBar = true;
-          finder.ShowPathbar = true;
-          menuExtraClock.Show24Hour = true;
-          menuExtraClock.ShowSeconds = true;
-          screencapture.location = "/Users/jan/Desktop/Screenshots";
-          loginwindow.GuestEnabled = false;
-
-          NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+        "com.apple.desktopservices" = {
+          # Avoid creating .DS_Store files on network or USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
         };
-
-        system.defaults.CustomUserPreferences = {
-          "com.apple.finder" = {
-            ShowExternalHardDrivesOnDesktop = true;
-            ShowHardDrivesOnDesktop = false;
-            ShowMountedServersOnDesktop = false;
-            ShowRemovableMediaOnDesktop = true;
-            _FXSortFoldersFirst = false;
-            # When performing a search, search the current folder by default
-            FXDefaultSearchScope = "SCcf";
-            NewWindowTargetPath = "file://\${HOME}/Desktop/";
-            FXEnableExtensionChangeWarning = false;
-          };
-          "com.apple.desktopservices" = {
-            # Avoid creating .DS_Store files on network or USB volumes
-            DSDontWriteNetworkStores = true;
-            DSDontWriteUSBStores = true;
-          };
-          "com.apple.ActivityMonitor" = {
-            OpenMainWindow = true;
-            IconType = 5;
-            SortColumn = "CPUUsage";
-            SortDirection = 0;
-          };
-          "com.apple.SoftwareUpdate" = {
-            AutomaticCheckEnabled = true;
-            # Check for software updates daily, not just once per week
-            ScheduleFrequency = 1;
-            # Download newly available updates in background
-            AutomaticDownload = 1;
-            # Install System data files & security updates
-            CriticalUpdateInstall = 1;
-          };
+        "com.apple.ActivityMonitor" = {
+          OpenMainWindow = true;
+          IconType = 5;
+          SortColumn = "CPUUsage";
+          SortDirection = 0;
         };
-
-        # Add ability to used TouchID for sudo authentication
-        security.pam.services.sudo_local.touchIdAuth = true;
-
-        system.defaults.dock = {
-          autohide = true;
-          mineffect = "scale";
-          show-recents = false;
-          tilesize = 36;
-          largesize = 64;
-          magnification = true;
-          wvous-br-corner = 4; # "Show Desktop;
-          orientation = "right"; # TODO remove after testing
-
-          persistent-apps = [
-            "/Applications/Google Chrome.app"
-            "/Applications/Visual Studio Code.app"
-            "/Applications/Mail.app"
-            "/Applications/Messages.app"
-            "/Applications/Music.app"
-            "/Applications/Spotify.app"
-            "/Applications/System Settings.app"
-            "/Applications/Ghostty.app"
-            "/Applications/Nix Apps/Warp.app"
-            "/Applications/Signal.app"
-            "/Applications/Nix Apps/Obsidian.app"
-          ];
+        "com.apple.SoftwareUpdate" = {
+          AutomaticCheckEnabled = true;
+          # Check for software updates daily, not just once per week
+          ScheduleFrequency = 1;
+          # Download newly available updates in background
+          AutomaticDownload = 1;
+          # Install System data files & security updates
+          CriticalUpdateInstall = 1;
         };
+      };
 
-        # Make Nix applications available in Spotlight
-        system.activationScripts.applications.text = let
-          env = pkgs.buildEnv {
-            name = "system-applications";
-            paths = config.environment.systemPackages;
-            pathsToLink = "/Applications";
-          };
-        in pkgs.lib.mkForce ''
+      # Add ability to used TouchID for sudo authentication
+      security.pam.services.sudo_local.touchIdAuth = true;
+
+      system.defaults.dock = {
+        autohide = true;
+        mineffect = "scale";
+        show-recents = false;
+        tilesize = 36;
+        largesize = 64;
+        magnification = true;
+        wvous-br-corner = 4; # "Show Desktop;
+        orientation = "right"; # TODO remove after testing
+
+        persistent-apps = [
+          "/Applications/Google Chrome.app"
+          "/Applications/Visual Studio Code.app"
+          "/Applications/Mail.app"
+          "/Applications/Messages.app"
+          "/Applications/Music.app"
+          "/Applications/Spotify.app"
+          "/Applications/System Settings.app"
+          "/Applications/Ghostty.app"
+          "/Applications/Nix Apps/Warp.app"
+          "/Applications/Signal.app"
+          "/Applications/Nix Apps/Obsidian.app"
+        ];
+      };
+
+      # Make Nix applications available in Spotlight
+      # TODO replace with https://github.com/hraban/mac-app-util
+      system.activationScripts.applications.text = let
+        env = pkgs.buildEnv {
+          name = "system-applications";
+          paths = config.environment.systemPackages;
+          pathsToLink = "/Applications";
+        };
+      in
+        pkgs.lib.mkForce ''
           rm -rf /Applications/Nix\ Apps
           mkdir -p /Applications/Nix\ Apps
           find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
@@ -248,66 +261,66 @@
           done
         '';
 
-        # Necessary for using flakes on this system.
-        nix.settings.experimental-features = "nix-command flakes";
+      # Necessary for using flakes on this system.
+      nix.settings.experimental-features = "nix-command flakes";
 
-        # programs.home-manager.enable = true;
+      # programs.home-manager.enable = true;
 
-        # programs.bat.enable = true;
-        # programs.bat.config.theme = "Nord";
+      # programs.bat.enable = true;
+      # programs.bat.config.theme = "Nord";
 
-        # programs.git = {
-        #   enable = true;
-        #   userEmail = "git@idleberg.com";
-        #   userName = "Jan T. Sott";
-        #   diff-so-fancy.enable = true;
-        #   lfs.enable = true;
-        # };
+      # programs.git = {
+      #   enable = true;
+      #   userEmail = "git@idleberg.com";
+      #   userName = "Jan T. Sott";
+      #   diff-so-fancy.enable = true;
+      #   lfs.enable = true;
+      # };
 
-        # # Enable alternative shell support in nix-darwin.
-        # programs.fish = {
-        #   enable = true;
-        #   shellAliases = {
-        #     # System
-        #     ".." = "cd ..";
-        #     "ls" = "eza";
-        #     "ll" = "eza -la";
+      # # Enable alternative shell support in nix-darwin.
+      # programs.fish = {
+      #   enable = true;
+      #   shellAliases = {
+      #     # System
+      #     ".." = "cd ..";
+      #     "ls" = "eza";
+      #     "ll" = "eza -la";
 
-        #     # Shortcuts
-        #     "desk" = "cd ~/Desktop";
-        #     "dl" = "cd ~/Downloads";
-        #     "mr" = "cd ~/Repositories";
+      #     # Shortcuts
+      #     "desk" = "cd ~/Desktop";
+      #     "dl" = "cd ~/Downloads";
+      #     "mr" = "cd ~/Repositories";
 
-        #     # Typos
-        #     "gti" = "git";
-        #     "gitp" = "git";
-        #   };
-        # };
+      #     # Typos
+      #     "gti" = "git";
+      #     "gitp" = "git";
+      #   };
+      # };
 
-        # Set Git commit hash for darwin-version.
-        system.configurationRevision = self.rev or self.dirtyRev or null;
+      # Set Git commit hash for darwin-version.
+      system.configurationRevision = self.rev or self.dirtyRev or null;
 
-        # Used for backwards compatibility, please read the changelog before changing.
-        # $ darwin-rebuild changelog
-        system.stateVersion = 6;
+      # Used for backwards compatibility, please read the changelog before changing.
+      # $ darwin-rebuild changelog
+      system.stateVersion = 6;
 
-        # The platform the configuration will be used on.
-        nixpkgs.hostPlatform = "aarch64-darwin";
-      };
-    in {
-      darwinConfigurations."minerva" = nix-darwin.lib.darwinSystem {
-        modules = [
-          configuration
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "jan";
-            };
-          }
-        ];
-        specialArgs = { inherit inputs; };
-      };
+      # The platform the configuration will be used on.
+      nixpkgs.hostPlatform = "aarch64-darwin";
     };
+  in {
+    darwinConfigurations."minerva" = nix-darwin.lib.darwinSystem {
+      modules = [
+        configuration
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = "jan";
+          };
+        }
+      ];
+      specialArgs = {inherit inputs;};
+    };
+  };
 }
