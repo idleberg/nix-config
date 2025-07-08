@@ -177,7 +177,7 @@
         NSGlobalDomain = {
           "com.apple.swipescrolldirection" = false;
           NSAutomaticSpellingCorrectionEnabled = false;
-        }
+        };
       };
 
       # TODO decide when to use system.defaults vs system.defaults.CustomUserPreferences
