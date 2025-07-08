@@ -18,7 +18,7 @@ There are several ways to install Nix on a Mac. Since the official Nix installer
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install
 ```
 
-The first dialog in the installer will ask you whether to "Install Determinate Nix?". Suprisingly, the answer is "No", we're going to use the installer to install Nix from NixOS.
+The first dialog in the installer will ask you whether to "Install Determinate Nix?". Suprisingly, the answer is "No", we're going to use the installer to install Nix from NixOS. Everything else cann usually be answered "yes".
 
 ### 2. Install Nix-Darwin
 
