@@ -7,6 +7,20 @@ This repository contains my private Nix configuration for macOS. It's also meant
 > [!IMPORTANT]
 > For reasons unknown, I was not able to install Nix on older versions of macOS. Any of the following installations methods got stuck. My first successful attempt was on macOS 15.5, the latest version at the time of this writing.
 
+### 0. Prerequisites
+
+While we could download this config as archive, we likely want to clone it in order to make adjustments.
+
+```sh
+xcode-select --install
+```
+
+Optionally, we can enable Rosetta
+
+```sh
+softwareupdate --install-rosetta --agree-to-license
+```
+
 ### 1. Install Nix
 
 There are several ways to install Nix on a Mac. Since the official Nix installer does not provide an uninstaller, the [Nix installer by Determinate Systems](https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#determinate-nix-installer) or the [Lix installer](https://lix.systems/install/#on-any-other-linuxmacos-system) are widely considered better alternatives. I'm using the former in the following.
