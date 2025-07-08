@@ -31,6 +31,7 @@ git clone https://github.com/idleberg/nix-config ~/.nix-darwin
 Install `nix-darwin`
 
 ```sh
+cd ~/.nix-darwin
 sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 ```
 
@@ -39,9 +40,6 @@ sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 Change into the newly created directory and build the configuration
 
 ```sh
-cd ~/.nix-darwin
-
-# Build & Switch
 make switch
 ```
 
