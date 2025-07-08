@@ -174,9 +174,13 @@
         screencapture.location = "\${HOME}/Screenshots";
         loginwindow.GuestEnabled = false;
 
-        NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+        NSGlobalDomain = {
+          "com.apple.swipescrolldirection" = false;
+          NSAutomaticSpellingCorrectionEnabled = false;
+        }
       };
 
+      # TODO decide when to use system.defaults vs system.defaults.CustomUserPreferences
       system.defaults.CustomUserPreferences = {
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = true;
