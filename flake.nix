@@ -152,7 +152,13 @@
         onActivation.upgrade = true;
       };
 
-      fonts.packages = with pkgs; [departure-mono fira ibm-plex nerd-fonts.blex-mono nerd-fonts.fira-mono];
+      fonts.packages = with pkgs; [
+        departure-mono
+        fira
+        ibm-plex
+        nerd-fonts.blex-mono
+        nerd-fonts.fira-mono
+      ];
 
       system.primaryUser = "jan";
 
