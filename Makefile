@@ -1,3 +1,4 @@
+# TODO set fallback in flake.nix
 NIXNAME := "minerva"
 
 bootstrap:
