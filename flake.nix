@@ -94,7 +94,6 @@
           "zed"
 
           # Gaming
-          "celeste-classic"
           "fs-uae"
           "gog-galaxy"
           "openemu"
@@ -228,7 +227,7 @@
         largesize = 64;
         magnification = true;
         wvous-br-corner = 4; # "Show Desktop;
-        orientation = "right"; # TODO remove after testing
+        orientation = "right"; # TODO remove after demo
 
         persistent-apps = [
           "/Applications/Google Chrome.app"
