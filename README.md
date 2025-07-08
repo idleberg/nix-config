@@ -18,7 +18,7 @@ xcode-select --install
 Optionally, we can enable Rosetta
 
 ```sh
-softwareupdate --install-rosetta --agree-to-license
+sudo softwareupdate --install-rosetta --agree-to-license
 ```
 
 ### 1. Install Nix
