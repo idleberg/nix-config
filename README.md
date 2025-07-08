@@ -61,3 +61,7 @@ Configs
 
 -   [Mitchell Hashimoto](https://github.com/mitchellh/nixos-config)
 -   [ironicbadger](https://github.com/ironicbadger/nix-config)
+
+Resources
+
+-   [MyNixOS](https://mynixos.com/)
