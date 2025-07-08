@@ -25,7 +25,7 @@ The first dialog in the installer will ask you whether to "Install Determinate N
 Since this repository already includes my `flake.nix`, we can clone it to a location of our liking.
 
 ```sh
-git clone https://github.com/idleberg/nix-config ~/nix
+git clone https://github.com/idleberg/nix-config ~/.nix-darwin
 ```
 
 Install `nix-darwin`
@@ -39,16 +39,11 @@ sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#
 Change into the newly created directory and build the configuration
 
 ```sh
-cd ~/nix
-
-# Install xcode-tools & enable rosetta
-sudo make bootstrap
+cd ~/.nix-darwin
 
 # Build & Switch
 make switch
 ```
-
--   [ ] `softwareupdate --install-rosetta`
 
 ## Acknowledgments
 
